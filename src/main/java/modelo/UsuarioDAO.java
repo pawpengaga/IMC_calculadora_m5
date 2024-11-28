@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class UsuarioDAO {
 
-  public void registrarUsuario(Usuario user) throws SQLException{
+  public boolean registrarUsuario(Usuario user) throws SQLException{
     
     // Partimos con la consulta
     String sql = "INSERT INTO usuarios (nombre, clave, correo) VALUES (?,?,?)";
@@ -22,15 +22,18 @@ public class UsuarioDAO {
       
       if (pstm.executeUpdate() < 0) {
         System.out.println("Registro aniadido.");
+        return true;
       }
     } catch (Exception e){
       e.printStackTrace();
     }
 
+    return false;
+
   }
 
   // Esto deberia estar en otro lado...
-  public boolean esUsuarioValido(String usuario, String clave) throws SQLException{
+  public Usuario esUsuarioValido(String usuario, String clave) throws SQLException{
     
     String sql = "SELECT * FROM usuarios WHERE correo = ? AND clave = ?";
 
@@ -44,13 +47,15 @@ public class UsuarioDAO {
       // Se guardan los resultados dados por una DB en un resulset
       ResultSet rs = pstm.executeQuery();
       if (rs.next()) {
-        return true;
+        Usuario user = new Usuario(rs.getString("nombre"), rs.getString("clave"), rs.getString("clave"));
+        user.setId(rs.getInt("id"));
+        return user;
       } 
       
     } catch (Exception e) {
       e.printStackTrace();
     }
-    return false;
+    return null;
   }
 
 }

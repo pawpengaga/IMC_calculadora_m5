@@ -8,8 +8,7 @@ public class Usuario {
   private String correo;
 
 
-  public Usuario(int id, String nombre, String clave, String correo) {
-    this.id = id;
+  public Usuario(String nombre, String clave, String correo) {
     this.nombre = nombre;
     this.clave = clave;
     this.correo = correo;
@@ -17,10 +16,6 @@ public class Usuario {
 
   public int getId() {
     return this.id;
-  }
-
-  public void setId(int id) {
-    this.id = id;
   }
 
   public String getNombre() {
@@ -55,6 +50,12 @@ public class Usuario {
       ", correo='" + getCorreo() + "'" +
       " }";
   }
+
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  
 
 
 }
