@@ -2,6 +2,7 @@ package modelo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UsuarioDAO {
@@ -26,6 +27,30 @@ public class UsuarioDAO {
       e.printStackTrace();
     }
 
+  }
+
+  // Esto deberia estar en otro lado...
+  public boolean esUsuarioValido(String usuario, String clave) throws SQLException{
+    
+    String sql = "SELECT * FROM usuarios WHERE correo = ? AND clave = ?";
+
+    try {
+      Connection conn = DBConn.getConnection();
+      PreparedStatement pstm = conn.prepareStatement(sql);
+
+      pstm.setString(1, usuario);
+      pstm.setString(2, clave);
+
+      // Se guardan los resultados dados por una DB en un resulset
+      ResultSet rs = pstm.executeQuery();
+      if (rs.next()) {
+        return true;
+      } 
+      
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return false;
   }
 
 }
