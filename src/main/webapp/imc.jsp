@@ -16,17 +16,20 @@
       <div class="card">
         <div class="card-body">
           <form action="/IMC/ImcServlet" method="POST">
-            <input type="hidden" name="userID" value="${userId}" />
+            <input type="hidden" name="userId" value="${userId}" />
             <div class="form-group">
               <label for="peso" class="form-label">Peso: </label>
-              <input class="form-control" type="number" name="peso" id="peso" required />
+              <input class="form-control" type="number" step="any" name="peso" id="peso" required />
             </div>
             <div class="form-group">
               <label for="altura" class="form-label">Altura: </label>
-              <input class="form-control" type="number" name="altura" id="altura" required />
+              <input class="form-control" type="number" step="any" name="altura" id="altura" required />
             </div>
             <button class="btn btn-primary" type="submit">Calcular IMC</button>
           </form>
+          <c:if test="${not empty mensaje}">
+            <p>${mensaje}</p>
+          </c:if>
         </div>
       </div>
     </div>
