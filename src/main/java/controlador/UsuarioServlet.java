@@ -57,6 +57,7 @@ public class UsuarioServlet extends HttpServlet {
 				if (usr != null) {
 					HttpSession session = request.getSession();
 					session.setAttribute("usuario", usr.getNombre()); // Tengo dudas.
+					session.setAttribute("userId", usr.getId());
 					request.getRequestDispatcher("index.jsp").forward(request, response);
 				} else {
 					request.setAttribute("error", "Usuario o clave invalida!");

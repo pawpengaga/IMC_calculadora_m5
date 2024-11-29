@@ -23,7 +23,7 @@
           </c:if>
           <c:if test="${not empty sessionScope.usuario}">
             <li class="nav-item">
-              <a class="nav-link active" href="#">IMC</a>
+              <a class="nav-link active" href="/IMC/ImcServlet">IMC</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Usuario</a>
