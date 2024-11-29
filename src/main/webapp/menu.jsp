@@ -29,7 +29,7 @@
               <a class="nav-link" href="#">Usuario</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Logout</a>
+              <a class="nav-link" href="/IMC/logout">Logout</a>
             </li>
           </c:if>
         </ul>
