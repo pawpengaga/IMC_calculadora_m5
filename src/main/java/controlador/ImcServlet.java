@@ -46,7 +46,8 @@ public class ImcServlet extends HttpServlet {
 		IMCResultado imc = new IMCResultado(userId, peso, altura);
 		try {
 			if (imcDAO.grabarIMC(imc)) {
-				request.setAttribute("mensaje", "IMC Registrado!");
+				request.setAttribute("mensaje", "IMC Registrado! Valor: " + imc.getImc());
+				// Manejar aqui una redireccion a una tabla o algo de IMC
 			} else {
 				request.setAttribute("mensaje", "Error al registrar...");
 			}

@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+  
   <%@ include file="menu.jsp"  %>
 
   <section>
@@ -28,7 +29,7 @@
             <button class="btn btn-primary" type="submit">Calcular IMC</button>
           </form>
           <c:if test="${not empty mensaje}">
-            <p>${mensaje}</p>
+            <p style="font-size: 1.5rem; color: orange;">${mensaje}</p>
           </c:if>
         </div>
       </div>

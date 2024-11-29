@@ -51,3 +51,4 @@ ALTER TABLE IF EXISTS public.resultado_imc
 -- INSERCIONES
 
 INSERT INTO usuarios (nombre, clave, correo) VALUES ('Erick Rivera', '1234', 'admin@admin.com');
+INSERT INTO usuarios (nombre, clave, correo) VALUES ('Rhea', '1234', 'user@user.com');
