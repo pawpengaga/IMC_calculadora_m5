@@ -47,3 +47,7 @@ ALTER TABLE IF EXISTS public.resultado_imc
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
+
+-- INSERCIONES
+
+INSERT INTO usuarios (nombre, clave, correo) VALUES ('Erick Rivera', '1234', 'admin@admin.com');

@@ -13,12 +13,12 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">Inicio</a>
+            <a class="nav-link" href="index.jsp">Inicio</a>
           </li>
 
           <c:if test="${empty sessionScope.usuario}">
             <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
+              <a class="nav-link" href="login.jsp">Login</a>
             </li>
           </c:if>
           <c:if test="${not empty sessionScope.usuario}">

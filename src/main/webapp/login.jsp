@@ -16,7 +16,7 @@
                     <div class="card" style="border-radius: 1rem;">
                         <div class="card-body p-3 text-center">
                             <!-- Aqui esta el form... -->
-                            <form action="/IMC/" class="row g-5 needs-validation" novalidate>
+                            <form action="/IMC/usuario?accion=login" method="POST" class="row g-5 needs-validation" novalidate>
                                 <div class="col-md-4">
                                   <label for="usuario" class="form-label">Usuario</label>
                                   <input type="email" class="form-control" id="usuario" name="usuario" placeholder="Usuario" required>
