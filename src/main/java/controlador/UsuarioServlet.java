@@ -53,11 +53,18 @@ public class UsuarioServlet extends HttpServlet {
 			String clave = request.getParameter("clave");
 
 			try {
-				if (userDAO.esUsuarioValido(correo, clave) != null) {
+				Usuario usr = userDAO.esUsuarioValido(correo, clave);
+				if (usr != null) {
 					HttpSession session = request.getSession();
-
+					session.setAttribute("usuario", usr.getNombre()); // Tengo dudas.
+					response.sendRedirect("");
+				} else {
+					request.setAttribute("error", "Usuario o clave invalida!");
+					request.getRequestDispatcher("login.jsp").forward(request, response);
 				}
 			} catch (Exception e) {
+				request.setAttribute("error", "Error: " + e.getMessage());
+				request.getRequestDispatcher("login.jsp").forward(request, response);
 			}
 		}
 	}

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -35,6 +36,9 @@
                                 </div>
                               </form>
                               <!-- Aqui el form acaba... -->
+                               <c:if test="${not empty error}">
+                                <p style="color: red;">${error}</p>
+                               </c:if>
                         </div>
                     </div>
                 </div>
